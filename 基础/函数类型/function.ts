@@ -18,6 +18,15 @@ let mySum = function(x:number, y:number):number{
     return x + y
 }
 
+/**
+ * 上面的代码只对等号右侧的匿名函数进行了类型定义，而等号左侧的mySum，其实是通过赋值操作进行类型推论而来的
+ **/ 
+let mySum:(x:number,y:number) => number = function (x: number, y: number): number {
+    return x + y;
+};
+// 注意！！！不要混淆 TypeScript 中的 => 和 ES6 中的 =>
+//在 TypeScript 的类型定义中，=> 用来表示函数的定义，左边是输入类型，需要用括号括起来，右边是输出类型
+
 /* 用？表示参数可选，注意：可选参数必须接在必需参数后面 */
 function getName(firstName:string, lastName?:string){
     if(lastName){

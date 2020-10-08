@@ -3,8 +3,6 @@
  * 但是在ts中，编译器并不知道$或jQuery是什么东西，此时就要使用declare var来定义它的类型
  */
 declare var jQuery:(selector:string) => any
-// maybe：jQuery的这个示例是函数表达式的一种变形
-// declare var jQuery = function(selector:string):any
 // declare var 并没有真的定义一个变量，只是定义了全局变量 jQuery 的类型，仅仅会用于编译时的检查，在编译结果中会被删除
 
 /**
