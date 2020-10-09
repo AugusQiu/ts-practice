@@ -17,3 +17,63 @@ let me: Person = {
 
 me.id = 2 // 报错：Cannot assign to 'id' because it is a read-only property
 
+// 函数类型
+interface SearchFunc{
+    (source:string, subString:string):boolean
+}
+let fun: SearchFunc = function(s,t){
+    let res = s.search(t)
+    if(res == -1){
+        return false
+    }else{
+        return true
+    }
+}
+// 类实现接口
+interface ClockInterface{
+    currentTime: Date;
+    setTime(d:Date);
+}
+class Clock implements ClockInterface{
+    currentTime:Date;
+    setTime(d:Date){
+        this.currentTime = d
+    }
+    constructor(h:number,m:number){}
+}
+
+
+/**
+ * 扩展：type 和 interface的区别？
+ * type 可以声明基本类型别名、联合类型、元组等类型
+ * interface能够声明合并
+ */
+
+ // 基本类型别名
+ type Name = string
+
+ // 联合类型
+ interface Dog{
+     wong()
+ }
+
+ interface Cat{
+     miao()
+ }
+ type Pet = Dog | Cat
+
+ // 声明合并
+ interface User{
+     name:string
+     age :number
+ }
+ interface User{
+     sex :string
+ }
+ /**
+  * User接口为{
+  *   name:string
+  *   age :number
+  *   sex :string
+  * }
+  */
